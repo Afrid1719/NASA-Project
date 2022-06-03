@@ -1,5 +1,5 @@
 {
-  "name": "NASA-Project",
+  "name": "nasa-be",
   "version": "1.0.0",
   "description": "NASA Misson Control API",
   "main": "index.js",
@@ -14,6 +14,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^5.1.0",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "NASA-Project": "file:.."
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }
