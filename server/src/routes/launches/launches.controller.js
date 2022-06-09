@@ -9,21 +9,21 @@ function httpAddNewLaunch(req, res) {
 
     if (!launch.mission || !launch.rocket || !launch.target || !launch.launchDate) {
         return res.status(400).json({
-            err: "Missin required launch date"
+            error: "Missing required launch data"
         });
     }
 
     launch.launchDate = new Date(launch.launchDate);
 
     if (isNaN(launch.launchDate)) {
-        return res.status(404).json({
-            err: "Invalid launch date"
+        return res.status(400).json({
+            error: "Invalid launch date"
         });
     }
 
-    addNewLaunch(launch);
+    const newLaunch = addNewLaunch(launch);
     
-    return res.status(201).json(getAllLaunches());
+    return res.status(201).json(newLaunch);
 }
 
 function httpAbortLaunch(req, res) {
@@ -32,7 +32,7 @@ function httpAbortLaunch(req, res) {
 
     if (!aborted) {
         return res.status(404).json({
-            err: 'Launch not found'
+            error: 'Launch not found'
         });
     }
 

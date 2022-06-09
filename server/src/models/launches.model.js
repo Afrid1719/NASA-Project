@@ -21,18 +21,22 @@ function getAllLaunches() {
 
 function addNewLaunch(launch) {
     latestFlightNumber++;
+    const newLaunch = Object.assign(
+        launch,
+        {
+            success: true,
+            upcoming: true,
+            flightNumber: latestFlightNumber,
+            customers: ['ZTM', 'NASA']
+        }
+    );
+
     launches.set(
         latestFlightNumber,
-        Object.assign(
-            launch,
-            {
-                success: true,
-                upcoming: true,
-                flightNumber: latestFlightNumber,
-                customers: ['ZTM', 'NASA']
-            }
-        )
+        newLaunch
     );
+    
+    return newLaunch;
 }
 
 function existsLaunchWithId(launchId) {
