@@ -1,6 +1,5 @@
 const LaunchesModel = require('./launches.mongo');
 const PlanetsModel = require('./planets.mongo');
-const launches = new Map();
 
 var DEFAULT_FLIGHT_NUMBER = 100;
 
