@@ -18,8 +18,8 @@ const schema = new mongoose.Schema({
         required: true,
     },
     target: {
-        type: ObjectID,
-        ref: '',
+        type: String,
+        required: true,
     },
     customers: {
         type: [String],
@@ -35,3 +35,5 @@ const schema = new mongoose.Schema({
         default: false,
     }
 });
+
+module.exports = mongoose.model('Launches', schema);
