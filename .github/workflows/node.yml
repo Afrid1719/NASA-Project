@@ -12,18 +12,21 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 16.x]
-        mongodb-version: [4.x]
+        mongodb-version: [4.4]
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
-        - name: Use Node.js version ${{ matrix.node-version }}
+        - name: Start Node.js ${{ matrix.node-version }}
           uses: actions/setup-node@v2
           with:
             node-version: ${{ matrix.node-version }}
-        - name: Use MongoDB from Github actions
-          uses: supercharge/mongodb-github-actions@1.6.0
+        - name: Start MongoDB using Github actions
+          uses: supercharge/mongodb-github-action@1.6.0
           with:
             mongodb-version: ${{ matrix.mongodb-version }}
-        - run: npm run install-app 
-        - run: npm run build-client
-        - run: npm test
+        - name: Install dependencies
+          run: npm install && npm run install-app 
+        - name: Build React code
+          run: npm run build-client
+        - name: Run unit tests
+          run: npm test
