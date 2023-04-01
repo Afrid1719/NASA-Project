@@ -15,6 +15,8 @@ RUN npm run build --prefix client
 
 COPY server/ server/
 
+RUN mv /app/client/build /app/server/public
+
 USER node
 
 CMD [ "npm", "start", "--prefix", "server" ]

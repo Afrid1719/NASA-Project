@@ -6,7 +6,7 @@
   "scripts": {
     "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
-    "build-client": "npm run build --prefix client",
+    "build-client": "npm run build-copy --prefix client",
     "install-app": "npm run install-server && npm run install-client",
     "server": "npm run start --prefix server",
     "client": "npm run start --prefix client",
@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/Afrid1719/NASA-Project#readme",
   "devDependencies": {
-    "concurrently": "^7.2.1"
+    "concurrently": "^7.6.0"
   }
 }
